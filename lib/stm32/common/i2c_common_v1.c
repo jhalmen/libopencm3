@@ -466,8 +466,8 @@ void i2c_clear_dma_last_transfer(uint32_t i2c)
 
 static void i2c_write7_v1(uint32_t i2c, int addr, uint8_t *data, size_t n)
 {
-	while ((I2C_SR2(i2c) & I2C_SR2_BUSY)) {
-	}
+	/* while ((I2C_SR2(i2c) & I2C_SR2_BUSY)) { */
+	/* } */
 
 	i2c_send_start(i2c);
 
