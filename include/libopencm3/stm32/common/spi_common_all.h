@@ -45,7 +45,11 @@ specific memorymap.h header before including this header file.*/
 @{*/
 #define SPI1				SPI1_BASE
 #define SPI2				SPI2_BASE
+#define I2S2				SPI2
+#define I2S2ext				I2S2_EXT_BASE
 #define SPI3				SPI3_BASE
+#define I2S3				SPI3
+#define I2S3ext				I2S3_EXT_BASE
 #define SPI4				SPI4_BASE
 #define SPI5				SPI5_BASE
 #define SPI6				SPI6_BASE
