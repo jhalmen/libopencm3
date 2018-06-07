@@ -230,84 +230,84 @@
 /* --- SDIO_STA values ---------------------------------------------------- */
 
 /* CEATAEND: CE-ATA command completion signal received for CMD61 */
-#define SDIO_STA_CEATAEND		(1 << 23)
+/* #define SDIO_STA_CEATAEND		(1 << 23) */
 
 /* SDIOIT: SDIO interrupt received */
-#define SDIO_STA_SDIOIT			(1 << 22)
+/* #define SDIO_STA_SDIOIT			(1 << 22) */
 
 /* RXDAVL: Data available in receive FIFO */
-#define SDIO_STA_RXDAVL			(1 << 21)
+/* #define SDIO_STA_RXDAVL			(1 << 21) */
 
 /* TXDAVL: Data available in transmit FIFO */
-#define SDIO_STA_TXDAVL			(1 << 20)
+/* #define SDIO_STA_TXDAVL			(1 << 20) */
 
 /* RXFIFOE: Receive FIFO empty */
-#define SDIO_STA_RXFIFOE		(1 << 19)
+/* #define SDIO_STA_RXFIFOE		(1 << 19) */
 
 /* TXFIFOE: Transmit FIFO empty */
 /* HW Flow Control enabled -> TXFIFOE signals becomes activated when the FIFO
  * contains 2 words.
  */
-#define SDIO_STA_TXFIFOE		(1 << 18)
+/* #define SDIO_STA_TXFIFOE		(1 << 18) */
 
 /* RXFIFOF: Receive FIFO full */
 /* HW Flow Control  enabled => RXFIFOF signals becomes activated 2 words before
  * the FIFO is full.
  */
-#define SDIO_STA_RXFIFOF		(1 << 17)
+/* #define SDIO_STA_RXFIFOF		(1 << 17) */
 
 /* TXFIFOF: Transmit FIFO full */
-#define SDIO_STA_TXFIFOF		(1 << 16)
+/* #define SDIO_STA_TXFIFOF		(1 << 16) */
 
 /* RXFIFOHF: Receive FIFO half full: there are at least 8 words in the FIFO */
-#define SDIO_STA_RXFIFOHF		(1 << 15)
+/* #define SDIO_STA_RXFIFOHF		(1 << 15) */
 
 /* TXFIFOHE: Transmit FIFO half empty: at least 8 words can be written into
  * the FIFO
  */
-#define SDIO_STA_TXFIFOHE		(1 << 14)
+/* #define SDIO_STA_TXFIFOHE		(1 << 14) */
 
 /* RXACT: Data receive in progress */
-#define SDIO_STA_RXACT			(1 << 13)
+/* #define SDIO_STA_RXACT			(1 << 13) */
 
 /* TXACT: Data transmit in progress */
-#define SDIO_STA_TXACT			(1 << 12)
+/* #define SDIO_STA_TXACT			(1 << 12) */
 
 /* CMDACT: Command transfer in progress */
-#define SDIO_STA_CMDACT			(1 << 11)
+/* #define SDIO_STA_CMDACT			(1 << 11) */
 
 /* DBCKEND: Data block sent/received (CRC check passed) */
-#define SDIO_STA_DBCKEND		(1 << 10)
+/* #define SDIO_STA_DBCKEND		(1 << 10) */
 
 /* STBITERR: Start bit not detected on all data signals in wide bus mode */
-#define SDIO_STA_STBITERR		(1 << 9)
+/* #define SDIO_STA_STBITERR		(1 << 9) */
 
 /* DATAEND: Data end (data counter, SDIDCOUNT, is zero) */
-#define SDIO_STA_DATAEND		(1 << 8)
+/* #define SDIO_STA_DATAEND		(1 << 8) */
 
 /* CMDSENT: Command sent (no response required) */
-#define SDIO_STA_CMDSENT		(1 << 7)
+/* #define SDIO_STA_CMDSENT		(1 << 7) */
 
 /* CMDREND: Command response received (CRC check passed) */
-#define SDIO_STA_CMDREND		(1 << 6)
+/* #define SDIO_STA_CMDREND		(1 << 6) */
 
 /* RXOVERR: Received FIFO overrun error */
-#define SDIO_STA_RXOVERR		(1 << 5)
+/* #define SDIO_STA_RXOVERR		(1 << 5) */
 
 /* TXUNDERR: Transmit FIFO underrun error */
-#define SDIO_STA_TXUNDERR		(1 << 4)
+/* #define SDIO_STA_TXUNDERR		(1 << 4) */
 
 /* DTIMEOUT: Data timeout */
-#define SDIO_STA_DTIMEOUT		(1 << 3)
+/* #define SDIO_STA_DTIMEOUT		(1 << 3) */
 
 /* CTIMEOUT: Command response timeout */
-#define SDIO_STA_CTIMEOUT		(1 << 2)
+/* #define SDIO_STA_CTIMEOUT		(1 << 2) */
 
 /* DCRCFAIL: Data block sent/received (CRC check failed) */
-#define SDIO_STA_DCRCFAIL		(1 << 1)
+/* #define SDIO_STA_DCRCFAIL		(1 << 1) */
 
 /* CCRCFAIL: Command response received (CRC check failed) */
-#define SDIO_STA_CCRCFAIL		(1 << 0)
+/* #define SDIO_STA_CCRCFAIL		(1 << 0) */
 
 
 /* --- SDIO_ICR values ---------------------------------------------------- */
@@ -426,6 +426,38 @@
 /* CCRCFAILIE: Command CRC fail interrupt enable */
 #define SDIO_MASK_CCRCFAILIE		(1 << 0)
 
+enum sdio_bus_width{
+	SDIO_BUSW_1 = 0,
+	SDIO_BUSW_4,
+	SDIO_BUSW_8
+};
+
+enum sdio_status_flags {
+	SDIO_STA_CEATAEND		=(1 << 23),
+	SDIO_STA_SDIOIT			=(1 << 22),
+	SDIO_STA_RXDAVL			=(1 << 21),
+	SDIO_STA_TXDAVL			=(1 << 20),
+	SDIO_STA_RXFIFOE		=(1 << 19),
+	SDIO_STA_TXFIFOE		=(1 << 18),
+	SDIO_STA_RXFIFOF		=(1 << 17),
+	SDIO_STA_TXFIFOF		=(1 << 16),
+	SDIO_STA_RXFIFOHF		=(1 << 15),
+	SDIO_STA_TXFIFOHE		=(1 << 14),
+	SDIO_STA_RXACT			=(1 << 13),
+	SDIO_STA_TXACT			=(1 << 12),
+	SDIO_STA_CMDACT			=(1 << 11),
+	SDIO_STA_DBCKEND		=(1 << 10),
+	SDIO_STA_STBITERR		=(1 << 9),
+	SDIO_STA_DATAEND		=(1 << 8),
+	SDIO_STA_CMDSENT		=(1 << 7),
+	SDIO_STA_CMDREND		=(1 << 6),
+	SDIO_STA_RXOVERR		=(1 << 5),
+	SDIO_STA_TXUNDERR		=(1 << 4),
+	SDIO_STA_DTIMEOUT		=(1 << 3),
+	SDIO_STA_CTIMEOUT		=(1 << 2),
+	SDIO_STA_DCRCFAIL		=(1 << 1),
+	SDIO_STA_CCRCFAIL		=(1 << 0)
+};
 
 /* --- SDIO_FIFOCNT values ------------------------------------------------- */
 
@@ -438,8 +470,22 @@
 
 /* --- Function prototypes ------------------------------------------------- */
 
-
-/* TODO */
+void sdio_power_on(void);
+void sdio_power_off(void);
+void sdio_enable_hw_flow_control(void);
+void sdio_disable_hw_flow_control(void);
+void sdio_enable_dephase(void);
+void sdio_disable_dephase(void);
+void sdio_set_bus_width(enum sdio_bus_width w);
+void sdio_enable_clk_bypass(void);
+void sdio_disable_clk_bypass(void);
+void sdio_enable_pwrsave(void);
+void sdio_disable_pwrsave(void);
+void sdio_enable_clock(void);
+void sdio_disable_clock(void);
+void sdio_set_clk_div(uint8_t div);
+void sdio_enable_interrupts(uint32_t interrupts);
+void sdio_disable_interrupts(uint32_t interrupts);
 
 
 #endif
