@@ -24,7 +24,7 @@ SRCLIBDIR	?= ../..
 FP_FLAGS	?= -mfloat-abi=hard -mfpu=fpv4-sp-d16
 CC		= $(PREFIX)gcc
 AR		= $(PREFIX)ar
-TGT_CFLAGS	= -Os \
+TGT_CFLAGS	= -O0 \
 		  -Wall -Wextra -Wimplicit-function-declaration \
 		  -Wredundant-decls -Wmissing-prototypes -Wstrict-prototypes \
 		  -Wundef -Wshadow \
